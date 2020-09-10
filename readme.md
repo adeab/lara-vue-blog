@@ -4,7 +4,7 @@
 
 ## About The Project
 
-A complete blog portal developed in laravel and Vue JS. The project is still in development. When completed it will have the following features:
+A complete blog portal developed in laravel and Vue JS. <strong>The project is still in development</strong>. When completed it will have the following features:
 - Blog Upload with tags, category, SEO keywords.
 - Blog view in index mode and in single page mode.
 - Facebook Sharing and Facebook comment Plugin
