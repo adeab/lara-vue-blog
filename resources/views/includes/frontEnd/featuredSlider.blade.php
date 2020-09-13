@@ -3,16 +3,16 @@
 </style>
 <div class="tc-ch wow fadeInDown" data-wow-duration=".8s" data-wow-delay=".2s">
     <div class="headline4-rka"><h3>Featured Posts</h3></div> 
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <div id="myCarousel2" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
         <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
+            <li data-target="#myCarousel2" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel2" data-slide-to="1"></li>
+            <li data-target="#myCarousel2" data-slide-to="2"></li>
         </ol>
         <div class="carousel-inner">
 
-            <div class="item active">
+            <div class="item active" style="bacground-color: red;">
                 <div class="tch-img">
                     <a href="singlepage.html"><img src="{{asset('frontEnd/images/t4.jpg')}}" class="img-responsive"
                             alt=""></a>
@@ -40,7 +40,7 @@
                 <div class="clearfix"></div>
             </div>
 
-            <div class="item">
+            <div class="item" style="bacground-color: red;">
                 <div class="tch-img">
                     <a href="singlepage.html"><img src="{{asset('frontEnd/images/m4.jpg')}}" class="img-responsive"
                             alt=""></a>
@@ -68,7 +68,7 @@
                 <div class="clearfix"></div>
             </div>
 
-            <div class="item">
+            <div class="item" style="bacground-color: red;">
                 <div class="tch-img">
                     <a href="singlepage.html"><img src="{{asset('frontEnd/images/m5.jpg')}}" class="img-responsive"
                             alt=""></a>
@@ -95,8 +95,11 @@
                 </div>
                 <div class="clearfix"></div>
             </div>
+            <!-- Left and right controls -->
+    
 
 
         </div>
+        
     </div>
 </div>

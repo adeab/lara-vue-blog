@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    alert($("#footer").height());
+    // alert($("#footer").height());
     $(".sticker").sticky({
         topSpacing: 20,
         zIndex: 2,
