@@ -1,3 +1,4 @@
+{{-- this is the main layout file that wraps the full front-end of the blog portal --}}
 <!DOCTYPE HTML>
 <html>
 
@@ -18,53 +19,51 @@
     <link href="{{asset('frontEnd/css/animate.min.css')}}" rel="stylesheet">
     <script src="{{asset('frontEnd/js/wow.min.js')}}"></script>
     <script src="{{asset('frontEnd/js/scrollHandler.js')}}"></script>
-    <script src="{{asset('frontEnd/js/jquery.sticky.js')}}"></script>
+
     <script>
         new WOW().init();
 
     </script>
-    
 </head>
 
 <body>
-    @include('includes.frontEnd.topbar')
-    <!--start-main-->
-    <div class="header-bottom">
-        <div class="container">
-            <div class="logo wow fadeInDown" data-wow-duration=".8s" data-wow-delay=".2s">
-                <h1><a href="#">Blogs</a></h1>
-                <p><label class="of"></label>LET'S MAKE A PERFECT BLOG<label class="on"></label></p>
-            </div>
-        </div>
-    </div>
-    <!-- banner -->
+    {{-- main body --}}
+    <div id="app">
+        @include('includes.frontEnd.topbar')
 
-    <div>
-		@yield('categorySlider')
-    </div>
-    <!-- body  -->
-    <div class="technology">
-        <div class="container">
-			
-		
-            {{-- <div class="clearfix"></div> --}}
-            <div class="col-md-9">
-                <div class="tech-no">
-                    @yield('bodyContent')
+        <div class="header-bottom">
+            <div class="container">
+                <div class="logo wow fadeInDown" data-wow-duration=".8s" data-wow-delay=".2s">
+                    <h1><a href="#">Blogs</a></h1>
+                    <p><label class="of"></label>LET'S MAKE A PERFECT BLOG<label class="on"></label></p>
                 </div>
             </div>
-            <div class="col-md-3 " >
-                 @include('includes.frontEnd.rightbar')
-            </div>
-           
-            <!-- end body -->
-
-            <!-- <div class="clearfix"></div> -->
-            <!-- technology-right -->
         </div>
+        {{-- category slider        --}}
+        <div>
+            @yield('categorySlider')
+        </div>
+        {{-- end of category slider --}}
+        {{-- all blog index --}}
+        <div class="technology">
+            <div class="container">
+                <div class="col-md-9">
+                    <div class="tech-no">
+                        @yield('bodyContent')
+                    </div>
+                </div>
+                <div class="col-md-3 ">
+
+                    <blog-sidebar></blog-sidebar>
+
+                </div>
+            </div>
+        </div>
+        {{-- end of all blog index --}}
+        @include('includes.frontEnd.footer')
     </div>
-    @include('includes.frontEnd.footer')
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{asset('frontEnd/js/jquery.sticky.js')}}"></script>
 </body>
 
 </html>
-

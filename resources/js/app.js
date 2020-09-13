@@ -25,10 +25,15 @@ Vue.use(VueRouter)
 
 import {filter} from './filter'
 
+import CategorySlider from './components/public/blog/CategorySlider.vue';
+import BlogSidebar from './components/public/blog/BlogSidebar.vue';
+Vue.component('category-slider', CategorySlider);
+Vue.component('blog-sidebar', BlogSidebar);
 
 Vue.component('admin-main', require('./components/admin/AdminMaster.vue').default);
 Vue.component('dashboard', require('./components/admin/AdminHome.vue'));
 Vue.component('home-main', require('./components/public/PublicMaster.vue').default);
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

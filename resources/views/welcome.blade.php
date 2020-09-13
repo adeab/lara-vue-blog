@@ -3,14 +3,13 @@
 
 {{-- get the category section in the layout --}}
 @section('categorySlider')
-@include('includes.frontEnd.categorySlider')
+<category-slider></category-slider>
 @endsection
 {{-- end of category section  --}}
 
 {{-- get the main body content  --}}
 @section('bodyContent')
-@include('includes.frontEnd.featuredSlider')
-@include('includes.frontEnd.allBlogs')
+<home-main></home-main>
 @endsection
 {{-- end of the main body contents --}}
 {{-- end of the main layout --}}

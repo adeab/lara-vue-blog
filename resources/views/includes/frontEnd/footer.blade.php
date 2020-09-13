@@ -39,6 +39,7 @@
 </div>
 <div class="copyright wow fadeInDown"  data-wow-duration=".8s" data-wow-delay=".2s">
             <div class="container">
-                <p>2020 Softopark</p>
+                <strong>Copyright &copy; 2020 <a href="{{url('/')}}">Softopark</a>.</strong> 
+                All rights reserved.
             </div>
         </div>

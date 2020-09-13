@@ -37,27 +37,22 @@
             @include('includes.adminPanel.sidemenu')
 
 
-            <!-- Content Wrapper. Contains page content -->
+            <!-- Content Wrapper. Contains admin panel content -->
             <div class="content-wrapper">
-                @yield('ap-contents') 
+                @yield('ap-contents')
             </div>
             <!-- /.content-wrapper -->
+
             <footer class="main-footer">
-                <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong>
+                <strong>Copyright &copy; 2020 <a href="{{url('/')}}">Softopark</a>.</strong>
                 All rights reserved.
-                <div class="float-right d-none d-sm-inline-block">
-                    <b>Version</b> 3.0.5
-                </div>
+
             </footer>
 
-            <!-- Control Sidebar -->
-            <aside class="control-sidebar control-sidebar-dark">
-                <!-- Control sidebar content goes here -->
-            </aside>
-            <!-- /.control-sidebar -->
+
         </div>
     </div>
-    <!-- ./wrapper -->
+
 
     <!-- jQuery -->
     <script src="{{asset('adminPanel/plugins/jquery/jquery.min.js')}}"></script>
