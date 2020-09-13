@@ -1,28 +1,26 @@
- $(document).ready(function () {
+$(document).ready(function () {
+    alert($("#footer").height());
+    $(".sticker").sticky({
+        topSpacing: 20,
+        zIndex: 2,
+        center: true,
+        responsiveWidth: true,
+        wrapperClassName: '',
+        widthFromWrapper: false,
+        bottomSpacing: $("#footer").height() + 270,
 
-     // take the sidebar offset top
-     var sticky = $("#rightBar").offset().top;
-     $(window).scroll(function () {
+    });
 
-         //make rightbar sticky
-         if ($(window).scrollTop() > sticky) {
-             $('#rightBar').addClass('sticky');
-         }
-         // make rightbar non-sticky
-         else {
-             $('#rightBar').removeClass('sticky');
-         }
-         //make rightbar bottom aligned as footer's bottom
-         if ($('#rightBar').offset().top + $("#rightBar").height() > $("#footer").offset().top) {
-            // $('#rightBar').css('bottom', ($("#footer").height())+200);   
-            $('#rightBar').css('top', -($("#rightBar").offset().top + $("#rightBar").height() - $("#footer").offset().top));
-              
-            }
-         else
-         {
-            $('#rightBar').css('top', '');
-            // $('#rightBar').css('bottom', '');
-         }
+    var sticky = $("#rightBar").offset().top;
+    $(window).scroll(function () {
 
-     });
- });
+        //make rightbar scrollable
+        if ($(window).scrollTop() > sticky) {
+            $('#rightBar').addClass('sticky-scroll');
+        }
+        // make rightbar non-scrollable
+        else {
+            $('#rightBar').removeClass('sticky-scroll');
+        }
+    });
+});

@@ -1,21 +1,18 @@
 <style>
-    .sticky {
-        position: fixed;
-        top: 0;
-        right: 0;
-        bottom: 0;
+    .sticky-scroll {
         overflow-y: scroll;
 
     }
 
 </style>
-<div class="col-md-3 technology-right" id="rightBar">
+<div class="sticker" id="rightBar">
     <div class="blo-top1">
         <div class="tech-btm">
             <div class="search-1 wow fadeInDown" data-wow-duration=".8s" data-wow-delay=".2s">
                 <form action="#" method="post"><input type="search" name="Search" value="Search"
                         onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}"
-                        required=""><input type="submit" value=" "></form>
+                        required=""><input type="submit" value=" ">
+                </form>
             </div>
             <h4>Latest Posts </h4>
             <div class="blog-grids wow fadeInDown" data-wow-duration=".8s" data-wow-delay=".2s">
@@ -68,6 +65,7 @@
                     </div>
                     <div class="clearfix"></div>
                 </div>
+
                 <div class="insta wow fadeInDown" data-wow-duration=".8s" data-wow-delay=".2s">
                     <h4>Categories</h4>
                     <ul>
@@ -118,7 +116,8 @@
 
                     </script>
                 </div>
+
             </div>
         </div>
     </div>
-   
+</div>

@@ -1,33 +1,59 @@
-
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
-
 require('./bootstrap');
 
 window.Vue = require('vue');
 
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
+import "@fortawesome/fontawesome-free/css/fontawesome.css";
+import "@fortawesome/fontawesome-free/css/all.css";
+import "@fortawesome/fontawesome-free/css/brands.css";
+import "@fortawesome/fontawesome-free/css/regular.css";
+import "@fortawesome/fontawesome-free/css/solid.css";
+import 'v-markdown-editor/dist/v-markdown-editor.css';
+import Editor from 'v-markdown-editor'
 
-// const files = require.context('./', true, /\.vue$/i);
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
+Vue.use(Editor);
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+
+import store from './store';
+import router from './routes'
+
+
+import Vuex from 'vuex'
+Vue.use(Vuex)
+
+import VueRouter from 'vue-router'
+Vue.use(VueRouter)
+
+import {filter} from './filter'
+
+
+Vue.component('admin-main', require('./components/admin/AdminMaster.vue').default);
+Vue.component('dashboard', require('./components/admin/AdminHome.vue'));
+Vue.component('home-main', require('./components/public/PublicMaster.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+import { Form, HasError, AlertError } from 'vform'
+
+Vue.component(HasError.name, HasError)
+Vue.component(AlertError.name, AlertError)
+window.Form = Form;
+// Sweet alert 2
+import swal from 'sweetalert2'
+window.swal = swal;
+const toast = swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 3000
+});
+
+window.toast = toast
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    store,
+    router
 });

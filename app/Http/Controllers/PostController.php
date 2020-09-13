@@ -18,7 +18,7 @@ class PostController extends Controller
     public function addPost(Request $request){
         $this->validate($request,[
             'title'=>'required|min:2|max:100',
-            'description'=>'required|min:2|max:1000'
+            'body'=>'required|min:2|max:1000'
         ]);
         $strpos = strpos($request->photo,';');
         $sub = substr($request->photo,0,$strpos);
@@ -29,11 +29,12 @@ class PostController extends Controller
         $img->save($upload_path.$name);
         $post = new Post();
         $post->title = $request->title;
-        $post->description = $request->description;
+        $post->body = $request->body;
         $post->category_id = $request->category_id;
         $post->user_id = Auth::user()->id;
         $post->photo = $name;
         $post->save();
+        dd($request);
     }
     public function editPost($id){
         $post = Post::find($id);
@@ -45,7 +46,7 @@ class PostController extends Controller
         $post = Post::find($id);
         $this->validate($request,[
             'title'=>'required|min:2|max:100',
-            'description'=>'required|min:2|max:1000'
+            'body'=>'required|min:2|max:1000'
         ]);
 
 
@@ -67,7 +68,7 @@ class PostController extends Controller
         }
 
         $post->title = $request->title;
-        $post->description = $request->description;
+        $post->body = $request->body;
         $post->category_id = $request->category_id;
         $post->user_id = Auth::user()->id;
         $post->photo = $name;

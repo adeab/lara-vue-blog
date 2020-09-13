@@ -681,7 +681,7 @@ i.glyphicon.glyphicon-comment {
 }
 
 .tech-btm {
-    padding: 2em 2em;
+    padding: 1em 1em;
     background: #fff;
 }
 
@@ -700,7 +700,7 @@ i.glyphicon.glyphicon-comment {
 }
 
 .technology-right {
-    width: 30%
+    width: 100%;
 }
 
 .technology-right-1 {
@@ -735,7 +735,7 @@ i.glyphicon.glyphicon-comment {
 
 .search-1 form input[type="submit"] {
     background: url(../images/key2.png) no-repeat 13px 9px;
-    width: 40px;
+    width: 36px;
     height: 32px;
     border: none;
     margin: 0 0 0 0px;
@@ -1952,7 +1952,9 @@ span.glyphicon.glyphicon-thumbs-up {
     .navbar-nav>li>a {
         padding: 10px 16px;
     }
-
+    .search-1 form input[type="submit"] {
+        width: 34px;
+    }
     .head-left {
         width: 3%;
     }
@@ -2108,7 +2110,10 @@ span.glyphicon.glyphicon-thumbs-up {
     .social-icons ul li {
         margin-left: 0px;
     }
-
+  
+    .technology-right{
+        display: none;
+    }
     .navbar-nav>li>a {
         font-size: 14px;
         padding: 10px 6px;
@@ -2362,7 +2367,9 @@ span.glyphicon.glyphicon-thumbs-up {
     .tab-image {
         float: left;
     }
-
+    .technology-right{
+        display: none;
+    }
     .technology-left {
         width: 100%;
         float: left;

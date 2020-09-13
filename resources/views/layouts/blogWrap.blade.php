@@ -18,11 +18,12 @@
     <link href="{{asset('frontEnd/css/animate.min.css')}}" rel="stylesheet">
     <script src="{{asset('frontEnd/js/wow.min.js')}}"></script>
     <script src="{{asset('frontEnd/js/scrollHandler.js')}}"></script>
+    <script src="{{asset('frontEnd/js/jquery.sticky.js')}}"></script>
     <script>
         new WOW().init();
 
     </script>
-    <!-- //animation-effect -->
+    
 </head>
 
 <body>
@@ -46,15 +47,19 @@
         <div class="container">
 			
 		
-            <div class="clearfix"></div>
-            <div class="col-md-9 technology-left">
+            {{-- <div class="clearfix"></div> --}}
+            <div class="col-md-9">
                 <div class="tech-no">
                     @yield('bodyContent')
                 </div>
             </div>
-            @include('includes.frontEnd.rightbar')
+            <div class="col-md-3 " >
+                 @include('includes.frontEnd.rightbar')
+            </div>
+           
             <!-- end body -->
-            <div class="clearfix"></div>
+
+            <!-- <div class="clearfix"></div> -->
             <!-- technology-right -->
         </div>
     </div>
