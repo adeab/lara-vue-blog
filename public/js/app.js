@@ -2846,15 +2846,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "BlogSidebar",
-  mounted: function mounted() {
-    var externalScript = document.createElement('script');
-    externalScript.setAttribute('src', 'https://www.example-of-external-script.com/script.js');
-    document.head.appendChild(externalScript);
-    var externalScript2 = document.createElement('script');
-    externalScript.setAttribute('src', 'https://www.example-of-external-script.com/script.js');
-    document.head.appendChild(externalScript2);
-  }
+  name: "BlogSidebar"
 });
 
 /***/ }),
@@ -2908,62 +2900,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "CategorySlider"
+  name: "CategorySlider",
+  computed: {
+    getallcategories: function getallcategories() {
+      return this.$store.getters.allcategories; // return Array.from(Array(Math.ceil(this.$store.getters.allcategories.length / 3)).keys())
+    },
+    groups: function groups() {
+      // return this.$store.getters.allcategories;
+      return Array.from(Array(Math.ceil(this.$store.getters.allcategories.length / 3)).keys());
+    }
+  },
+  mounted: function mounted() {
+    this.$store.dispatch('allcategories');
+  }
 });
 
 /***/ }),
@@ -88480,152 +88430,48 @@ var render = function() {
             attrs: { id: "myCarousel", "data-ride": "carousel" }
           },
           [
-            _c("div", { staticClass: "carousel-inner" }, [
-              _c("div", { staticClass: "item active" }, [
-                _c(
+            _c(
+              "div",
+              { staticClass: "carousel-inner" },
+              _vm._l(_vm.groups, function(group, i) {
+                return _c(
                   "div",
-                  {
-                    staticClass: "col-md-4 col-sm-5 tab-image customHovereffect"
-                  },
-                  [
-                    _c("img", {
-                      staticClass: "img-responsive",
-                      attrs: { src: "frontEnd/images/m2.jpg", alt: "Wanderer" }
-                    }),
-                    _vm._v(" "),
-                    _vm._m(0)
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "col-md-4 col-sm-5 tab-image customHovereffect"
-                  },
-                  [
-                    _c("img", {
-                      staticClass: "img-responsive",
-                      attrs: { src: "frontEnd/images/m1.jpg", alt: "Wanderer" }
-                    }),
-                    _vm._v(" "),
-                    _vm._m(1)
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "col-md-4 col-sm-5 tab-image customHovereffect"
-                  },
-                  [
-                    _c("img", {
-                      staticClass: "img-responsive",
-                      attrs: { src: "frontEnd/images/m3.jpg", alt: "Wanderer" }
-                    }),
-                    _vm._v(" "),
-                    _vm._m(2)
-                  ]
+                  { key: group, class: i == 0 ? "item active" : "item" },
+                  _vm._l(
+                    _vm.getallcategories.slice(i * 3, (i + 1) * 3),
+                    function(cat) {
+                      return _c(
+                        "div",
+                        {
+                          key: cat.id,
+                          staticClass:
+                            "col-md-4 col-sm-5 tab-image customHovereffect"
+                        },
+                        [
+                          _c("img", {
+                            staticClass: "img-responsive",
+                            attrs: {
+                              src: "frontEnd/images/m2.jpg",
+                              alt: "Wanderer"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "overlay" }, [
+                            _c("h2", [_vm._v(_vm._s(cat.name))])
+                          ])
+                        ]
+                      )
+                    }
+                  ),
+                  0
                 )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "item" }, [
-                _c(
-                  "div",
-                  {
-                    staticClass: "col-md-4 col-sm-5 tab-image customHovereffect"
-                  },
-                  [
-                    _c("img", {
-                      staticClass: "img-responsive",
-                      attrs: { src: "frontEnd/images/t1.jpg", alt: "Wanderer" }
-                    }),
-                    _vm._v(" "),
-                    _vm._m(3)
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "col-md-4 col-sm-5 tab-image customHovereffect"
-                  },
-                  [
-                    _c("img", {
-                      staticClass: "img-responsive",
-                      attrs: { src: "frontEnd/images/t2.jpg", alt: "Wanderer" }
-                    }),
-                    _vm._v(" "),
-                    _vm._m(4)
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "col-md-4 col-sm-5 tab-image customHovereffect"
-                  },
-                  [
-                    _c("img", {
-                      staticClass: "img-responsive",
-                      attrs: { src: "frontEnd/images/t3.jpg", alt: "Wanderer" }
-                    }),
-                    _vm._v(" "),
-                    _vm._m(5)
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "item" }, [
-                _c(
-                  "div",
-                  {
-                    staticClass: "col-md-4 col-sm-5 tab-image customHovereffect"
-                  },
-                  [
-                    _c("img", {
-                      staticClass: "img-responsive",
-                      attrs: { src: "frontEnd/images/f2.jpg", alt: "Wanderer" }
-                    }),
-                    _vm._v(" "),
-                    _vm._m(6)
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "col-md-4 col-sm-5 tab-image customHovereffect"
-                  },
-                  [
-                    _c("img", {
-                      staticClass: "img-responsive",
-                      attrs: { src: "frontEnd/images/f4.jpg", alt: "Wanderer" }
-                    }),
-                    _vm._v(" "),
-                    _vm._m(7)
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "col-md-4 col-sm-5 tab-image customHovereffect"
-                  },
-                  [
-                    _c("img", {
-                      staticClass: "img-responsive",
-                      attrs: { src: "frontEnd/images/f3.jpg", alt: "Wanderer" }
-                    }),
-                    _vm._v(" "),
-                    _vm._m(8)
-                  ]
-                )
-              ])
-            ]),
+              }),
+              0
+            ),
             _vm._v(" "),
-            _vm._m(9),
+            _vm._m(0),
             _vm._v(" "),
-            _vm._m(10)
+            _vm._m(1)
           ]
         )
       ])
@@ -88633,78 +88479,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "overlay" }, [
-      _c("h2", [_vm._v("Category Name")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "overlay" }, [
-      _c("h2", [_vm._v("Category Name")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "overlay" }, [
-      _c("h2", [_vm._v("Category Name")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "overlay" }, [
-      _c("h2", [_vm._v("Category Name")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "overlay" }, [
-      _c("a", [_c("h2", [_vm._v("Category Name")])])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "overlay" }, [
-      _c("h2", [_vm._v("Category Name")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "overlay" }, [
-      _c("h2", [_vm._v("Category Name")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "overlay" }, [
-      _c("h2", [_vm._v("Category Name")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "overlay" }, [
-      _c("h2", [_vm._v("Category Name")])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
