@@ -16,7 +16,7 @@
               <div class="icon">
                 <i class="fas fa-blog"></i>
               </div>
-              <router-link to="/post-list" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></router-link>
+              <router-link to="/admin/post-list" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></router-link>
             </div>
           </div>
           <!-- ./col -->

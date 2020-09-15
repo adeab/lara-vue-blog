@@ -4,12 +4,10 @@
     </div>
 </template>
 <script>
-// import catSlider from "../public/blog/CategorySlider.vue";
+
 export default {
     
     name:"PublicMaster",
-    // components:{
-    //     catSlider,
-    // }
+   
 }
 </script>

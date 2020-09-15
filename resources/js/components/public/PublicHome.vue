@@ -1,22 +1,18 @@
 <template>
     <div>
-        <featuredSlider></featuredSlider>
-        <allBlogs></allBlogs>
+        <featured-slider></featured-slider>
+        <all-blogs></all-blogs>
     </div>
 
 </template>
 
 
 <script>
-import featuredSlider from "../public/blog/FeaturedSlider.vue";
-import allBlogs from "../public/blog/BlogPost.vue";
-
-    export default {
+export default {
         name: "PublicHome",
-        components: {
-            featuredSlider,
-            allBlogs,
-        }
+        
+        
+
 
     }
 

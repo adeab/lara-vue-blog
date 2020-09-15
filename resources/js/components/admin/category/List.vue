@@ -9,7 +9,7 @@
 
                             <div class="card-tools">
                                 <button class="btn btn-primary">
-                                    <router-link to="/add-category" style="color:#fff"> Add Category</router-link>
+                                    <router-link to="/admin/add-category" style="color:#fff"> Add Category</router-link>
                                 </button>
                             </div>
                         </div>
@@ -43,7 +43,7 @@
                                     <td>{{category.name}}</td>
                                     <td>{{category.created_at | timeformat}}</td>
                                     <td>
-                                        <router-link :to="`/edit-category/${category.id}`">Edit</router-link>
+                                        <router-link :to="`/admin/edit-category/${category.id}`">Edit</router-link>
                                         <a href="" @click.prevent = "deletecategory(category.id)" >Delete</a>
                                     </td>
                                 </tr>

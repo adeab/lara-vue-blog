@@ -33,8 +33,8 @@ class PostController extends Controller
         $post->category_id = $request->category_id;
         $post->user_id = Auth::user()->id;
         $post->photo = $name;
-        $post->save();
-        dd($request);
+        // $post->save();
+        dd($request->slug);
     }
     public function editPost($id){
         $post = Post::find($id);

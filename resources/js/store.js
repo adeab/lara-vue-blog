@@ -45,7 +45,7 @@ const store = new Vuex.Store({
                     console.log(response.data)
                     context.commit('allpost',response.data.posts)
                 })
-        },
+        }, 
         getblogPost(context){
             axios.get('/blogpost')
                 .then((response)=>{

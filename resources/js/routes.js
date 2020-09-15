@@ -16,36 +16,32 @@ import AddPost from './components/admin/post/New.vue'
 import EditPost from './components/admin/post/Edit.vue'
 let routes = [
     {
-        path:'/home',
+        path:'/admin/home',
         component:AdminHome
     },
-    // {
-    //     path:'/dashboard',
-    //     component:AdminHome
-    // },
     {
-        path:'/category-list',
+        path:'/admin/category-list',
         component:CategoryList
     },
     {
-        path:'/add-category',
+        path:'/admin/add-category',
         component:AddCategory
     },
     {
-        path:'/edit-category/:categoryid',
+        path:'/admin/edit-category/:categoryid',
         component:EditCategory
     },
     // Post
     {
-        path:'/post-list',
+        path:'/admin/post-list',
         component:PostList
     },
     {
-        path:'/add-post',
+        path:'/admin/add-post',
         component:AddPost
     },
     {
-        path:'/edit-post/:postid',
+        path:'/admin/edit-post/:postid',
         component:EditPost
     },
 
@@ -59,7 +55,7 @@ let routes = [
         component:BlogPost
     },
     {
-        path:'/blog/:id',
+        path:'/rkapost',
         component:SinglePost
     },
     {

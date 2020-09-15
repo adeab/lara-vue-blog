@@ -50,7 +50,7 @@ export default {
             addCategory(){
                 this.form.post('/add-category')
                     .then((response)=>{
-                       this.$router.push('/category-list')
+                       this.$router.push('/admin/category-list')
                         // toast({
                         //     type: 'success',
                         //     title: 'Category Added successfully'

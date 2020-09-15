@@ -2,7 +2,7 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
       <!-- Brand Logo -->
       <a href="index3.html" class="brand-link">
-          <img src="http://softopark.com/images/training/ssss-01.png" alt="Softopark Logo" class="img-fluid" style="-webkit-filter: invert(100%);" 
+          <img src="http://site.softopark.com/images/logo/ssss_01.png" alt="Softopark Logo" class="img-fluid" style="-webkit-filter: invert(100%);" 
               style="opacity: .8">
           {{-- <span class="brand-text font-weight-light">AdminLTE 3</span> --}}
       </a>
@@ -24,7 +24,7 @@
               <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                   data-accordion="false">
 <li class="nav-item">
-    <router-link to="/home" class="nav-link">
+    <router-link to="/admin/home" class="nav-link">
                       <i class="nav-icon fas fa-tachometer-alt"></i>
                       <p>
                         Dashboard
@@ -42,13 +42,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                       <li class="nav-item">
-                        <router-link to="/post-list" class="nav-link">
+                        <router-link to="/admin/post-list" class="nav-link">
                           <i class="far fa-circle nav-icon"></i>
                           <p>Blogs</p>
                         </router-link>
                       </li>
                       <li class="nav-item">
-                        <router-link to="/category-list" class="nav-link">
+                        <router-link to="/admin/category-list" class="nav-link">
                           <i class="far fa-circle nav-icon"></i>
                           <p>Categories</p>
                         </router-link>

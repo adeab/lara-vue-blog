@@ -4,9 +4,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/admin/home', 'HomeController@index')->name('home');
 
 
 Route::group(['middleware' => ['auth']], function () {
@@ -21,7 +22,7 @@ Route::group(['middleware' => ['auth']], function () {
 
     //Post
     Route::get('/post','PostController@allPosts');
-    Route::post('/savepost','PostController@addPost');
+    Route::post('/savenewpost','PostController@addPost');
     Route::get('/post/{id}','PostController@editPost');
     Route::post('/update/{id}','PostController@updatePost');
     Route::delete('/delete/{id}','PostController@deletePost');
@@ -34,3 +35,10 @@ Route::get('/categorypost/{id}','BlogController@getallPostByCategoryId');
 Route::get('/search','BlogController@searchPost');
 Route::get('/latestpost','BlogController@latestPost');
 
+
+Route::get('/admin/{any}', function () {
+    return view('home');
+})->where('any','.*');
+Route::get('{any}', function () {
+    return view('welcome');
+})->where('any','.*');

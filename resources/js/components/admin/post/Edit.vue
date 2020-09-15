@@ -112,7 +112,7 @@
             updatePost(){
                 this.form.post(`/update/${this.$route.params.postid}`)
                     .then(()=>{
-                        this.$router.push('/post-list')
+                        this.$router.push('/admin/post-list')
                         toast({
                             type: 'success',
                             title: 'Post Updated successfully'
@@ -127,7 +127,7 @@
                 if(img.length>100){
                     return  this.form.photo
                 }else{
-                    return `uploadimage/${this.form.photo}`
+                    return `../../uploadimage/${this.form.photo}`
                 }
 
             }

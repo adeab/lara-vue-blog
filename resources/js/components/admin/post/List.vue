@@ -9,7 +9,7 @@
 
                             <div class="card-tools">
                                 <button class="btn btn-primary">
-                                    <router-link to="/add-post" style="color:#fff"> Add New Post</router-link>
+                                    <router-link to="/admin/add-post" style="color:#fff"> Add New Post</router-link>
                                 </button>
                             </div>
                         </div>
@@ -40,7 +40,7 @@
                                     <td>{{post.body | sortlength(40,"....")}}</td>
                                     <td><img :src="ourImage(post.photo)" alt="" width="40" height="50"></td>
                                     <td>
-                                        <router-link :to="`edit-post/${post.id}`">Edit</router-link>
+                                        <router-link :to="`/admin/edit-post/${post.id}`">Edit</router-link>
                                         <a href="" @click.prevent = "deletePost(post.id)" >Delete</a>
 
                                     </td>
@@ -75,7 +75,7 @@
         },
         methods:{
             ourImage(img){
-                return "uploadimage/"+img;
+                return "../uploadimage/"+img;
             },
             deletePost(id){
                axios.get('/delete/'+id)
