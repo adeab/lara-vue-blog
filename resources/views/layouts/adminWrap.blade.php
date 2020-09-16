@@ -11,6 +11,10 @@
     <link rel="stylesheet" href="{{asset('adminPanel/plugins/fontawesome-free/css/all.min.css')}}">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="{{asset('adminPanel/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css')}}">
+    <link rel="stylesheet"
+        href="{{asset('adminPanel/plugins/datatables-responsive/css/responsive.bootstrap4.min.css')}}">
     <!-- Tempusdominus Bbootstrap 4 -->
     <link rel="stylesheet"
         href="{{asset('adminPanel/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css')}}">
@@ -28,6 +32,11 @@
     <link rel="stylesheet" href="{{asset('adminPanel/plugins/summernote/summernote-bs4.css')}}">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    {{-- cropper css  --}}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.9/cropper.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.9/cropper.css" rel="stylesheet">
+    {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> --}}
+  
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -53,7 +62,7 @@
         </div>
     </div>
 
-
+    <script src="{{ asset('js/app.js') }}"></script>
     <!-- jQuery -->
     <script src="{{asset('adminPanel/plugins/jquery/jquery.min.js')}}"></script>
     <!-- jQuery UI 1.11.4 -->
@@ -65,6 +74,8 @@
     </script>
     <!-- Bootstrap 4 -->
     <script src="{{asset('adminPanel/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.9/cropper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.9/cropper.js"></script>
     <!-- ChartJS -->
     <script src="{{asset('adminPanel/plugins/chart.js/Chart.min.js')}}"></script>
     <!-- Sparkline -->
@@ -82,6 +93,21 @@
     </script>
     <!-- Summernote -->
     <script src="{{asset('adminPanel/plugins/summernote/summernote-bs4.min.js')}}"></script>
+    {{-- Data Table Scripts  --}}
+    <script src="{{asset('adminPanel/plugins/datatables/jquery.dataTables.min.js')}}"></script>
+    <script src="{{asset('adminPanel/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
+    <script src="{{asset('adminPanel/plugins/datatables-responsive/js/dataTables.responsive.min.js')}}"></script>
+    <script src="{{asset('adminPanel/plugins/datatables-responsive/js/responsive.bootstrap4.min.js')}}"></script>
+    <script>
+        $(function () {
+            $("#example1").DataTable({
+                "responsive": true,
+                "autoWidth": false,
+            });
+
+        });
+
+    </script>
     <!-- overlayScrollbars -->
     <script src="{{asset('adminPanel/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
     <!-- AdminLTE App -->
@@ -90,7 +116,7 @@
     <script src="{{asset('adminPanel/dist/js/pages/dashboard.js')}}"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="{{asset('adminPanel/dist/js/demo.js')}}"></script>
-    <script src="{{ asset('js/app.js') }}" defer></script>
+
 </body>
 
 </html>

@@ -33,8 +33,9 @@ class PostController extends Controller
         $post->category_id = $request->category_id;
         $post->user_id = Auth::user()->id;
         $post->photo = $name;
-        // $post->save();
-        dd($request->slug);
+        $post->publish_status="published";
+        $post->save();
+        // dd($request->slug);
     }
     public function editPost($id){
         $post = Post::find($id);
@@ -83,4 +84,40 @@ class PostController extends Controller
         }
         $post->delete();
     }
+    public function draftPost(){
+        $this->validate($request,[
+            'title'=>'required|min:2|max:100',
+            'body'=>'required|min:2|max:1000'
+        ]);
+        $strpos = strpos($request->photo,';');
+        $sub = substr($request->photo,0,$strpos);
+        $ex = explode('/',$sub)[1];
+        $name = time().".".$ex;
+        $img = Image::make($request->photo)->resize(200, 200);
+        $upload_path = public_path()."/uploadimage/";
+        $img->save($upload_path.$name);
+        $post = new Post();
+        $post->title = $request->title;
+        $post->body = $request->body;
+        $post->category_id = $request->category_id;
+        $post->user_id = Auth::user()->id;
+        $post->photo = $name;
+        $post->publish_status="draft";
+        $post->save();
+    }
+    public function togglePublishStatus($id)
+    {
+        $post = Post::find($id);
+        $post->publish_status == 'published'? $post->publish_status='draft':$post->publish_status='published';
+        $post->save();
+        
+    }
+    public function toggleFeaturedStatus($id)
+    {
+        $post = Post::find($id);
+        $post->featured == 0? $post->featured=1:$post->featured=0;
+        $post->save();
+        
+    }
+
 }

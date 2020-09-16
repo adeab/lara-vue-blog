@@ -10,7 +10,6 @@ import "@fortawesome/fontawesome-free/css/brands.css";
 import "@fortawesome/fontawesome-free/css/regular.css";
 import "@fortawesome/fontawesome-free/css/solid.css";
 import 'v-markdown-editor/dist/v-markdown-editor.css';
-import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import Editor from 'v-markdown-editor'
 
@@ -46,12 +45,6 @@ Vue.component('admin-main', require('./components/admin/AdminMaster.vue').defaul
 Vue.component('dashboard', require('./components/admin/AdminHome.vue'));
 Vue.component('home-main', require('./components/public/PublicMaster.vue').default);
 
-
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
 import { Form, HasError, AlertError } from 'vform'
 
 Vue.component(HasError.name, HasError)

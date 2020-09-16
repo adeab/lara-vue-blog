@@ -5,7 +5,8 @@ Vue.filter('timeformat',(arg)=>{
 })
 
 Vue.filter('sortlength',function (text,length,suffix) {
-    if(text!==null)
+    if(text!==null && text.length>length)
     return text.substring(0,length)+suffix;
+    else return text;
 
 })

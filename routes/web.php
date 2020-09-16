@@ -23,6 +23,10 @@ Route::group(['middleware' => ['auth']], function () {
     //Post
     Route::get('/post','PostController@allPosts');
     Route::post('/savenewpost','PostController@addPost');
+    Route::post('/savedraft','PostController@draftPost');
+    // Route::post('/publish','PostController@publishPost');
+    Route::post('/toggleStatus/{id}','PostController@togglePublishStatus');
+    Route::post('/toggleFeatured/{id}','PostController@toggleFeaturedStatus');
     Route::get('/post/{id}','PostController@editPost');
     Route::post('/update/{id}','PostController@updatePost');
     Route::delete('/delete/{id}','PostController@deletePost');

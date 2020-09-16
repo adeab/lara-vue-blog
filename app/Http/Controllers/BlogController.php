@@ -9,7 +9,7 @@ use App\Post;
 class BlogController extends Controller
 {
     public function  getallBlogPost(){
-        $posts = Post::with('user','category')->orderBy('id','desc')->get();
+        $posts = Post::with('user','category')->where('publish_status', 'published')->orderBy('id','desc')->get();
         return response()->json([
             'posts'=>$posts
         ],200);

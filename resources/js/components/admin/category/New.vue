@@ -51,14 +51,14 @@ export default {
                 this.form.post('/add-category')
                     .then((response)=>{
                        this.$router.push('/admin/category-list')
-                        // toast({
-                        //     type: 'success',
-                        //     title: 'Category Added successfully'
-                        // })
+                        toast({
+                            type: 'success',
+                            title: 'Category Added successfully'
+                        })
                     })
-                    // .catch(()=>{
+                    .catch(()=>{
 
-                    // })
+                    })
 
             }
     }
