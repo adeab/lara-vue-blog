@@ -10,7 +10,7 @@
                                 <!--  -->
                                 <img :src="'frontEnd/images/m2.jpg'" class="img-responsive" alt="Wanderer">
                                 <div class="overlay">
-                                    <h2>{{cat.name}}</h2>
+                                    <router-link to="{path: '/categories/' + cat.id}">{{cat.name}}</router-link>
                                 </div>
                             </div>
                         </div>
@@ -45,6 +45,8 @@
         },
         mounted() {
             this.$store.dispatch('allcategories');
+            this.$store.dispatch('getPostByCatId');
+            
         }
     }
 

@@ -9,7 +9,8 @@ const store = new Vuex.Store({
         blogpost:[],
         singlepost:[],
         allcategories:[],
-        latestpost:[]
+        latestpost:[],
+        
     },
     getters:{
         getCategory(state){
@@ -29,7 +30,8 @@ const store = new Vuex.Store({
         },
         latestpost(state){
             return state.latestpost
-        }
+        },
+        
 
     },
     actions:{
@@ -71,7 +73,7 @@ const store = new Vuex.Store({
                 .then((response)=>{
                     console.log(response.data.posts)
                     context.commit('getPostByCatId',response.data.posts)
-                })
+                }) 
         },
         SearchPost(context,payload){
             axios.get('/search?s='+payload)
@@ -86,7 +88,8 @@ const store = new Vuex.Store({
                     // console.log(response.data)
                     context.commit('latestpost',response.data.posts)
                 })
-        }
+        },
+       
     },
     mutations:{
         categoreis(state,data){
@@ -112,7 +115,8 @@ const store = new Vuex.Store({
         },
         latestpost(state,payload){
             state.latestpost = payload
-        }
+        },
+       
     }
 });
 

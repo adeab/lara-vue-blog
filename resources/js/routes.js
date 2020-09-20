@@ -9,6 +9,7 @@ import EditCategory from './components/admin/category/Edit.vue'
 import PublicHome from './components/public/PublicHome.vue'
 import BlogPost from './components/public/blog/BlogPost.vue'
 import SinglePost from './components/public/blog/SingleBlog.vue'
+import CategoryBlogs from './components/public/blog/CategoryBlogs.vue'
 
 // Post
 import PostList from './components/admin/post/List.vue'
@@ -60,7 +61,7 @@ let routes = [
     },
     {
         path:'/categories/:id',
-        component:BlogPost
+        component:CategoryBlogs
     },
 
 ];

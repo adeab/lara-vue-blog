@@ -30,7 +30,7 @@
                         <td v-else>Featured</td>
                         <td v-if="post.category">{{post.category.name}}</td>
                         <td>{{post.title | sortlength(20,"---")}}</td>
-                        <td>{{post.body | sortlength(40,"....")}}</td>
+                        <td v-html="$options.filters.sortlength(post.body, 40, '....')"></td>
                         <!-- <td><img :src="ourImage(post.photo)" alt="" width="40" height="50"></td> -->
                         <td>
                             <div>
@@ -80,6 +80,12 @@
 <script>
     export default {
         name: "List",
+        data(){
+            return{
+                trimmed_body: '',
+            }
+            
+        },
         mounted() {
             this.$store.dispatch('gelAllPost')
         },

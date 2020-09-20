@@ -5,10 +5,13 @@
     <div class="blo-top1">
         <div class="tech-btm">
             <div class="search-1 " >
-                <form action="#" method="post"><input type="search" name="Search" value="Search"
+                <form action="#" method="post"><input type="search" v-model="searchQuery" name="Search" value="Search"
                         onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}"
                         required=""><input type="submit" value=" ">
                 </form>
+            </div>
+            <div v-for="blog in allposts" :key="blog.id">
+                {{blog.name}}
             </div>
             <h4>Latest Posts </h4>
             <div class="blog-grids " >
@@ -63,7 +66,7 @@
                 </div>
 
                 <div class="insta " >
-                    <h4>Categories</h4>
+                    <h4>Categories</h4> 
                     <ul>
                         <li><a href="singlepage.html"><img :src="'frontEnd/images/t1.jpg'"
                                     class="img-responsive" alt=""></a></li>
@@ -85,6 +88,7 @@
                                     class="img-responsive" alt=""></a></li>
                     </ul>
                 </div>
+
                 <p>Lorem ipsum ex vix illud nonummy,
                     novum tation et his. At vix scripta patrioque scribentur,
                     at pro</p>
@@ -101,14 +105,24 @@
 <script>
 export default {
     name: "BlogSidebar",
+    data(){
+        return{
+            searchQuery: '',
+        }
+    },
     computed:{
-		allposts(){
+        allposts(){
 			return this.$store.getters.getblogPost
 		}
 	},
 	mounted(){
-		this.$store.dispatch("getblogPost")
-	}
+		this.$store.dispatch("SearchPost")
+    },
+    methods: {
+                searchProducts() {
+                    this.$store.dispatch('SearchPost', this.searchQuery)
+                }
+            }
     
     
 }

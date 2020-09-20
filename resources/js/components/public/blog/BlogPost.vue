@@ -8,8 +8,8 @@
                 </div>
 
                 <h3><a href="singlepage.html">{{blog.title}}</a></h3>
-                <h6>BY <a href="singlepage.html">SOFTOPARK </a>{{blog.created_at|timeformat}}</h6>
-                <p>{{blog.body}}</p>
+                <h6>BY <a href="singlepage.html">{{blog.author}} </a>{{blog.created_at|timeformat}}</h6>
+                <p>{{blog.body | sortlength(40,"....")}}</p>
                 <div class="bht1">
                     <router-link to="/rkapost">Read More</router-link>
                 </div>
@@ -38,7 +38,7 @@ export default {
 	},
 	mounted(){
 		this.$store.dispatch("getblogPost")
-	}
+	} 
     
     
 }

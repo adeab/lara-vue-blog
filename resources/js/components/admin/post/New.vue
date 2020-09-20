@@ -21,8 +21,7 @@
                 <div class="form-group">
                     <label for="descriptionId">Add New Description</label>
 
-                    <markdown-editor v-model="form.body"></markdown-editor>
-
+                    <vue-editor v-model="form.body"></vue-editor>
                     <has-error :form="form" field="body"></has-error>
                 </div>
                 <div class="form-group">
@@ -74,44 +73,30 @@
                 <div class="form-group">
                     <input @change="changePhoto($event)" name="photo" type="file"
                         :class="{ 'is-invalid': form.errors.has('photo') }">
-                    <img :src="form.photo" alt="" width="80" height="80">
                     <has-error :form="form" field="photo"></has-error>
-
-                    <!-- <img ref="image" :src="form.photo"> -->
-                    <!-- <ImageCropper :imageSource="form.photo"></ImageCropper> -->
                 </div>
-                <div class="form-group">
-                    <input @change="onFileChanged" type="file">
-                    <!-- <img :src="form.photo" alt="" width="80" height="80"> -->
-                    <!-- <has-error :form="form" field="photo"></has-error> -->
 
-                    <!-- <img ref="image" :src="form.photo"> -->
-                    <ImageCropper :imageSource="uploadedPhoto"></ImageCropper>
-                </div>
 
             </div>
-            <!-- /.card-body -->
+            <div ref="imageCropperArea"></div>
 
             <div class="card-footer">
                 <button type="submit" class="btn btn-primary" name="publish" value="publish">Publish</button>
                 <button type="submit" class="btn btn-success" name="draft" value="draft">Save as Draft</button>
             </div>
         </form>
+        
     </div>
 
-
-
-
-
-    <!-- </div> -->
 </template>
 
 
 
 
 <script>
-import ImageCropper from './../../ImageCropper.vue';
-
+    import ImageCropper from './../../ImageCropper.vue';
+    import { VueEditor } from "vue2-editor";
+    
     export default {
         name: "New",
         data() {
@@ -120,6 +105,7 @@ import ImageCropper from './../../ImageCropper.vue';
                     title: '',
                     body: '',
                     category_id: '',
+                    temp_photo: '',
                     photo: '',
                     seo: '',
                     slug: '',
@@ -127,16 +113,16 @@ import ImageCropper from './../../ImageCropper.vue';
                     author: 'Softopark',
 
                 }),
-                uploadedPhoto: '',
-                
+
             }
         },
-        components:{
-            ImageCropper
+        
+        components: {
+            ImageCropper,
+            VueEditor
         },
         mounted() {
             this.$store.dispatch("allCategory");
-            
 
         },
         computed: {
@@ -149,17 +135,26 @@ import ImageCropper from './../../ImageCropper.vue';
             },
             setslug: function () {
                 this.form.slug = this.getslug;
-            }
+            },
 
         },
         methods: {
-             onFileChanged (event) {
-    this.uploadedPhoto = event.target.files[0];
-    console.log(event.target.files[0]);
-  },
-            getButtonName(event) {
-                // console.log(event);
+
+            createImageCropping(event) {
+                var ComponentClass = Vue.extend(ImageCropper)
+                var instance = new ComponentClass({
+                    propsData: {
+                        imageSource: this.form.temp_photo
+                    }
+                })
+                instance.$mount() // pass nothing
+                this.$refs.imageCropperArea.appendChild(instance.$el)
+                instance.$on('crop', dataUrl => {
+                    this.form.photo = dataUrl;
+                })
+
             },
+
             handleClick(e) {
                 var buttonName = e.target.name;
                 if (buttonName === "publish") {
@@ -172,21 +167,15 @@ import ImageCropper from './../../ImageCropper.vue';
             changePhoto(event) {
                 let file = event.target.files[0];
 
-                if (file.size > 1048576) {
-                    swal({
-                        type: 'error',
-                        title: 'Oops...',
-                        text: 'Something went wrong!',
-                        footer: '<a href>Why do I have this issue?</a>'
-                    })
-                } else {
-                    let reader = new FileReader();
-                    reader.onload = event => {
-                        this.form.photo = event.target.result
-                        console.log(event.target.result)
-                    };
-                    reader.readAsDataURL(file);
-                }
+
+                let reader = new FileReader();
+                reader.onload = event => {
+                    this.form.temp_photo = event.target.result
+                    this.createImageCropping(event)
+
+                };
+                reader.readAsDataURL(file);
+
 
             },
             addnewPost() {
