@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Category;
-use Illuminate\Http\Request;
+// use Illuminate\Http\Request;
+use Request;
 use App\Post;
 
 class BlogController extends Controller
@@ -36,9 +37,9 @@ class BlogController extends Controller
 
         $search = Request::get('s');
         if($search!=null){
-            $posts = Post::with('user','category')
+            $posts = Post::with('user','category', 'tags')
                 ->where('title','LIKE',"%$search%")
-                ->orWhere('description','LIKE',"%$search%")
+                ->orWhere('body','LIKE',"%$search%")
                 ->get();
             return response()->json([
                 'posts'=>$posts

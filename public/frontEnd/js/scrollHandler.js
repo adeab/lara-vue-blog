@@ -10,6 +10,16 @@ $(document).ready(function () {
         bottomSpacing: $("#footer").height() + 270,
 
     });
+    $(".sticker2").sticky({
+        // topSpacing: 20,
+        zIndex: 2,
+        center: true,
+        responsiveWidth: true,
+        wrapperClassName: '',
+        widthFromWrapper: false,
+        // bottomSpacing: $("#footer").height() + 270,
+
+    });
 
     var sticky = $("#rightBar").offset().top;
     $(window).scroll(function () {

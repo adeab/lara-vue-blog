@@ -11,6 +11,7 @@ import "@fortawesome/fontawesome-free/css/regular.css";
 import "@fortawesome/fontawesome-free/css/solid.css";
 import 'v-markdown-editor/dist/v-markdown-editor.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css'
+// import 'mdbvue/lib/css/mdb.min.css';
 import Editor from 'v-markdown-editor'
 
 Vue.use(Editor);
@@ -34,11 +35,13 @@ import {filter} from './filter'
 import CategorySlider from './components/public/blog/CategorySlider.vue';
 import FeaturedSlider from './components/public/blog/FeaturedSlider.vue';
 import BlogSidebar from './components/public/blog/BlogSidebar.vue';
+import BlogSearchbar from './components/public/blog/BlogSearchbar.vue';
 import BlogPost from './components/public/blog/BlogPost.vue';
 
 Vue.component('category-slider', CategorySlider);
 Vue.component('featured-slider', FeaturedSlider);
 Vue.component('blog-sidebar', BlogSidebar);
+Vue.component('blog-searchbar', BlogSearchbar);
 Vue.component('all-blogs', BlogPost);
 
 Vue.component('admin-main', require('./components/admin/AdminMaster.vue').default);

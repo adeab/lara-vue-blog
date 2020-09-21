@@ -33,7 +33,7 @@ Route::group(['middleware' => ['auth']], function () {
 });
 
 Route::get('/blogpost','BlogController@getallBlogPost');
-Route::get('/singlepost/{id}','BlogController@getPostById');
+Route::get('/singlepost/{id}','BlogController@getPostById')->name('blog.show');
 Route::get('/categories','BlogController@getallCategory');
 Route::get('/categorypost/{id}','BlogController@getallPostByCategoryId');
 Route::get('/search','BlogController@searchPost');

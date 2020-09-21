@@ -5,14 +5,12 @@
     <div class="blo-top1">
         <div class="tech-btm">
             <div class="search-1 " >
-                <form action="#" method="post"><input type="search" v-model="searchQuery" name="Search" value="Search"
+                <form action="#" method="post"><input type="search" name="Search" value="Search" v-model="searchQuery" @keyup="filterPosts"
                         onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}"
                         required=""><input type="submit" value=" ">
                 </form>
             </div>
-            <div v-for="blog in allposts" :key="blog.id">
-                {{blog.name}}
-            </div>
+            
             <h4>Latest Posts </h4>
             <div class="blog-grids " >
                 <div class="blog-grid-left"><a href="singlepage.html"><img :src="'frontEnd/images/t2.jpg'"
@@ -110,20 +108,13 @@ export default {
             searchQuery: '',
         }
     },
-    computed:{
-        allposts(){
-			return this.$store.getters.getblogPost
-		}
-	},
-	mounted(){
-		this.$store.dispatch("SearchPost")
-    },
-    methods: {
-                searchProducts() {
-                    this.$store.dispatch('SearchPost', this.searchQuery)
-                }
-            }
-    
+    methods:{
+        filterPosts(){
+            this.$store.dispatch('SearchPost', 
+       this.searchQuery);
+        }
+    }
+
     
 }
 </script>
